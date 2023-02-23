@@ -1,0 +1,32 @@
+doctype html 
+html(lang='en')
+    head 
+        include ./header
+        title Add Artwork 
+    body 
+        if session.artist == true
+            h1 Add an Artwork: 
+
+            p Name: 
+                input#name(type = 'textbox')
+            p Year: 
+                input#year(type = 'textbox')
+            p Category: 
+                input#category(type = 'textbox')
+            p Medium: 
+                input#medium(type = 'textbox')
+            p Description: 
+                input#description(type = 'textbox')
+            p Image URL: 
+                input#imageURL(type = 'textbox')
+            button#addButton(type='button') Add artwork
+
+
+            h1 Host a workshop: 
+            p Workshop Name: 
+                input#workshopName(type = 'textbox')
+            button#addWorkshop(type='button') Create Workshop
+        else 
+            h3 You must be logged in as an Artist account to access this page.
+if session.artist == true
+    script(type = 'text/javascript', src="../addartwork.js")

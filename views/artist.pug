@@ -1,0 +1,26 @@
+doctype html 
+html(lang='en')
+    head 
+        include ./header
+        title Artist 
+    body 
+        h1#artistName #{artist.username}
+        if follow == false
+            button#followButton(type='button') Follow
+        else 
+            button#followButton(type='button') Unfollow
+        br
+        br   
+
+        h3 Posts:
+        each art in artworks 
+            a(href=`/artwork/${art.id}`) #{art.name}
+            br
+
+        h3 Workshops
+        each ws in artist.workshops 
+            p#workshopName #{ws.name} 
+            button#enrollBtn(type='button') Enroll
+            br
+
+script(type = 'text/javascript', src="../follow.js")

@@ -1,0 +1,49 @@
+doctype html 
+html(lang='en')
+    head 
+        title User Registration 
+    body 
+        include ./header
+        if session.loggedin == true
+            h3 you are already logged in 
+        else 
+            h1 Register
+            div 
+                label(for="username") Username 
+                input#username(
+                    type='text'
+                )
+                br
+
+                label(for="password") Password 
+                input#password(
+                    type='text'
+                )
+                br
+
+                input#submitRegister(
+                    type = 'submit'
+                    value = 'Register'
+                )
+
+            h3 If you already have an account, log-in:
+            br
+            div
+                label(for="loginUsername") Username 
+                input#loginUsername(
+                    type='text'
+                )
+                br
+
+                label(for="loginPassword") Password 
+                input#loginPassword(
+                    type='text'
+                )
+                br
+
+                input#submitLogin(
+                    type = 'submit'
+                    value = 'Log-in'
+                )
+if session.loggedin != true
+    script(type="text/javascript", src="./register.js")

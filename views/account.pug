@@ -1,0 +1,49 @@
+doctype html 
+html(lang='en')
+    head 
+        title Account
+    body 
+        include ./header
+        h3 Account Information
+        if session.username
+            p Username: #{session.username}
+            div
+                if session.artist == false
+                    p This is currently a Patron account.
+                    button#patronArtistToggle(type="button") Become Artist
+                else 
+                    p This is currently an Artist account.
+                    button#patronArtistToggle(type="button") Become Patron
+
+            div#followedArtists 
+            h3 You are current following these artists:
+            each artist in session.following 
+                a(href=`/artist/${artist}`) #{artist}
+                br
+            br
+
+            div#likedPosts 
+            h3 Here are the posts you have liked:
+            each artwork in liked 
+                a(href=`/artwork/${artwork.id}`) #{artwork.name}
+                br
+            br
+            
+            div#followedArtists 
+            h3 Posts you have left a review on:
+            each post in reviewed
+                a(href=`/artwork/${post.id}`) #{post.name}
+                br
+            br
+
+            if session.workshop
+                h3 Here are the workshops you are enrolled in: 
+                each workshop in session.workshops 
+                    p #{workshop.workshop}
+
+            button#logoutButton(type = "button") Log-out
+        else 
+            p You are not logged in. 
+            p Go the the Register tab to create an account and/or log-in
+if session.username       
+    script(type="text/javascript", src="./account.js")

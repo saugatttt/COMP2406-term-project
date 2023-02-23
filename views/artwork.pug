@@ -1,0 +1,40 @@
+doctype html 
+html(lang='en')
+    head 
+        include ./header
+        title Artwork 
+    body 
+        h1#artworkName #{artwork.name}
+        a(href=`/artist/${artwork.artist}`) #{artwork.artist}
+        p #{artwork.description}
+        p Year: #{artwork.year}
+
+        h3 Likes: #{artwork.likes}
+        if liked == false
+            button#likeButton(type = "button") Like 
+        else 
+            button#likeButton(type = "button") Unlike 
+
+        p Medium: #{artwork.medium}
+        p Category: #{artwork.category}
+
+        img(src=`${artwork.image}`)
+
+        div#reviewSection
+            h3 Reviews: 
+            each review in artwork.reviews 
+                p #{review.user} said: #{review.text}
+                
+            br
+            p Add a review: 
+            input#userReview(type = 'textbox')
+            br
+            br
+            button#sendReview(type = "button") Submit 
+
+        br
+        h3 image id:
+        p#artworkID #{artwork.id}
+        
+script(type="text/javascript", src="../like.js")
+        

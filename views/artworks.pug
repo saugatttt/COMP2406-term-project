@@ -1,0 +1,24 @@
+doctype html 
+html(lang='en')
+    head 
+        include ./header
+        title Artworks 
+    body 
+        div#search 
+            h1 Artwork Gallery 
+            p Enter data into the filter form below and hit refresh to find matching artwork 
+
+            p Name: 
+                input#name(type = 'textbox')
+            p Artist: 
+                input#artist(type = 'textbox')
+            p Category: 
+                input#category(type = 'textbox')
+
+            button#refresh(type='button') Refresh Results
+
+        h3 Artworks
+        div#results 
+            p #{result}
+
+script(type = 'text/javascript', src="./artwork.js")
