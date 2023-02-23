@@ -1,3 +1,4 @@
-# COMP2406-term-project
-# COMP2406-term-project
-# COMP2406-term-project
+  Author: Saugat Shrestha
+ Program: An Image Gallery Website
+ 
+ 
